@@ -6,13 +6,16 @@ const BasicCalculator = () => {
   const [firstOperand, setFirstOperand] = useState(null);
   const [operator, setOperator] = useState(null);
   const [waitingForSecondOperand, setWaitingForSecondOperand] = useState(false);
+  const [displayExpression, setDisplayExpression] = useState('');
   
   const handleNumberClick = (number) => {
     if (waitingForSecondOperand) {
       setDisplayValue(number);
+      setDisplayExpression(`${displayExpression} ${number}`);
       setWaitingForSecondOperand(false);
     } else {
       setDisplayValue(displayValue === '0' ? number : displayValue + number);
+      setDisplayExpression(displayValue === '0' ? number : `${displayExpression}${number}`);
     }
   };
 
@@ -29,6 +32,7 @@ const BasicCalculator = () => {
 
     setOperator(nextOperator);
     setWaitingForSecondOperand(true);
+    setDisplayExpression(`${displayExpression} ${nextOperator}`);
   };
 
   const calculate = (first, second, operator) => {
@@ -53,21 +57,25 @@ const BasicCalculator = () => {
     setFirstOperand(null);
     setOperator(null);
     setWaitingForSecondOperand(false);
+    setDisplayExpression('');
   };
 
   const handleEqualClick = () => {
     if (operator && firstOperand !== null) {
       const result = calculate(firstOperand, parseFloat(displayValue), operator);
       setDisplayValue(String(result));
+      setDisplayExpression(`${displayExpression} = ${result}`);
       setFirstOperand(null);
       setOperator(null);
       setWaitingForSecondOperand(false);
     }
   };
 
+  console.log({ firstOperand, operator, displayValue });
+
   return (
     <div className="calculator">
-      <div className="display">{displayValue}</div>
+      <div className="display">{displayExpression || displayValue}</div>
       <div className="buttons">
         <button className="btn clear" onClick={handleClear} >C</button>
         <button className="btn" onClick={() => handleOperatorClick('%')}>%</button>
