@@ -68,3 +68,123 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Purpose of the Project
+
+The Basic Calculator is a React-based application designed to provide a user-friendly interface for performing basic arithmetic operations. The goal of this project is to implement a functional calculator that handles real-world edge cases and provides a seamless experience to users.
+
+Key objectives include:
+
+Performing arithmetic operations such as addition, subtraction, multiplication, division, and modulus.
+
+Handling invalid input scenarios gracefully.
+
+Providing real-time feedback and error messages for incorrect sequences.
+
+Core Features
+
+Basic Arithmetic Operations
+
+Addition (+)
+
+Subtraction (-)
+
+Multiplication (*)
+
+Division (/)
+
+Modulus (%)
+
+Real-Time Expression Display
+
+Shows the full expression being typed, improving user clarity.
+
+Error Handling
+
+Division by zero displays "Cannot divide by zero" and resets automatically.
+
+Invalid operator sequences (e.g., 9 + *) display "Invalid Input" and reset after 2 seconds.
+
+Length Validation
+
+Limits input length to prevent overflow in the display.
+
+Decimal Support
+
+Prevents multiple decimal points in a single number.
+
+Keyboard Support
+
+Users can interact with the calculator using keyboard inputs.
+
+Additional Features
+
+Backspace Functionality
+
+Users can delete the last entered character or operator.
+
+Chained Calculations
+
+Allows continuous calculations without clearing the display (e.g., 2 + 3 * 4 results in 14).
+
+Dynamic Error Recovery
+
+Automatically resets to an operable state after errors.
+
+Instructions to Run the Calculator
+
+1.Clone the Repository
+  git clone https://github.com/your-username/basic-calculator.git
+  cd basic-calculator
+
+2.Install Dependencies
+  npm install
+
+3.Start the Development Server
+  npm start
+
+4.Access the Application
+
+Open your browser and navigate to http://localhost:3000.
+
+5.Usage
+
+Click on the buttons to enter numbers and operators.
+
+Press = to calculate the result.
+
+Use C to clear the display or ← (backspace) to delete the last character.
+
+Use your keyboard for input as well (numbers, operators, Enter, and Backspace supported).
+
+Challenges Faced
+
+Handling Invalid Input Scenarios
+
+Ensuring that sequences like 7 + * or 9 / / display appropriate errors and reset gracefully.
+
+Error Recovery
+
+Implementing a system to automatically recover from invalid states without requiring user intervention.
+
+Chained Operations
+
+Managing the state of operands and operators to support continuous calculations without requiring manual clears.
+
+Display Overflow
+
+Limiting the length of both numbers and expressions to ensure the UI remains visually intact.
+
+Keyboard Support
+
+Adding event listeners for keyboard interactions while avoiding conflicts with existing UI button functionality.
+
+Future Enhancements
+
+Add scientific calculator functionalities (e.g., trigonometric operations, exponents).
+
+Implement a history feature to track previous calculations.
+
+Add themes and customization options.
+
+Provide localization support for different languages.
